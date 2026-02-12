@@ -7,7 +7,7 @@ export function HomePage () {
   return (
     <>
       <link rel="icon" type="image/svg+xml" href={homeIcon} />
-      <title>Vertigo Ecommerce</title>
+      <title>Ecommerce Project</title>
 
       <Header />
 

@@ -1,0 +1,38 @@
+.error-container {
+  background-color: rgb(186, 255, 190);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.error-text{
+  color: rgb(8, 79, 45);
+  font-size: 80px;
+  margin: 0;
+}
+
+.error-code{
+  color: rgb(8, 79, 45);
+  font-size: 160px;
+  margin: 0;
+}
+
+.error-description{
+  color: rgb(8, 79, 45);
+  font-size: 36px;
+  margin: 0;
+}
+
+.home-button {
+  margin-top: 20px;
+  background-color: rgb(8, 79, 45);
+  color: white;
+  display: block;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 24px;
+}
