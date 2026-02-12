@@ -1,10 +1,12 @@
 import { Header } from '../components/Header';
 import './HomePage.css';
+import homeIcon from '../assets/images/home-favicon.png';
+import checkmarkIcon from '../assets/images/icons/checkmark.png';
 
 export function HomePage () {
   return (
     <>
-      <link rel="icon" type="image/svg+xml" href="home-favicon.png" />
+      <link rel="icon" type="image/svg+xml" href={homeIcon} />
       <title>Vertigo Ecommerce</title>
 
       <Header />
@@ -51,7 +53,7 @@ export function HomePage () {
             <div className="product-spacer"></div>
 
             <div className="added-to-cart">
-              <img src="images/icons/checkmark.png" />
+              <img src={checkmarkIcon} />
               Added
             </div>
 
@@ -100,7 +102,7 @@ export function HomePage () {
             <div className="product-spacer"></div>
 
             <div className="added-to-cart">
-              <img src="images/icons/checkmark.png" />
+              <img src={checkmarkIcon} />
               Added
             </div>
 
@@ -149,7 +151,7 @@ export function HomePage () {
             <div className="product-spacer"></div>
 
             <div className="added-to-cart">
-              <img src="images/icons/checkmark.png" />
+              <img src={checkmarkIcon} />
               Added
             </div>
 
