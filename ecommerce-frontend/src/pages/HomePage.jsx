@@ -1,5 +1,5 @@
 import { Header } from '../components/Header';
-import { products } from '../data/products';
+import { products } from '../../starting-code/data/products';
 import './HomePage.css';
 import homeIcon from '../assets/images/home-favicon.png';
 import checkmarkIcon from '../assets/images/icons/checkmark.png';
