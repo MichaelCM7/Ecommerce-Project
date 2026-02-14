@@ -1,10 +1,10 @@
 import axios from 'axios';
 import { useState, useEffect, Fragment } from 'react';
-import { Header } from '../components/Header';
+import { Header } from '../../components/Header';
 import './OrdersPage.css';
-import ordersIcon from '../assets/images/orders-favicon.png';
-import buyAgainIcon from '../assets/images/icons/buy-again.png';
-import { formatMoney } from '../utils/money';
+import ordersIcon from '../../assets/images/orders-favicon.png';
+import buyAgainIcon from '../../assets/images/icons/buy-again.png';
+import { formatMoney } from '../../utils/money';
 import dayjs from 'dayjs';
 
 export function OrdersPage({ cart }) {
