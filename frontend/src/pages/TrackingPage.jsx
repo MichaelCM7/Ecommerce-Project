@@ -3,13 +3,13 @@ import { Header } from '../components/Header';
 import { Link } from 'react-router';
 import trackingIcon from '../assets/images/tracking-favicon.png';
 
-export function TrackingPage() {
+export function TrackingPage({ cart }) {
   return (
     <>
       <link rel="icon" type="image/svg+xml" href={trackingIcon} />
       <title>Tracking</title>
 
-      <Header />
+      <Header cart={cart} />
 
       <div class="tracking-page">
       <div class="order-tracking">
