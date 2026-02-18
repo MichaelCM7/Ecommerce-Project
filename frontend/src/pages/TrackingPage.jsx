@@ -37,9 +37,9 @@ export function TrackingPage({ cart }) {
     deliveryPercentage = 100;
   }
 
-  console.log(totalDeliveryTimeMs);
-  console.log(timePassedMs);
-  console.log(deliveryPercentage);
+  const isPreparing = deliveryPercentage < 33;
+  const isShipped = deliveryPercentage >=33 && deliveryPercentage < 100;
+  const isDelivered = deliveryPercentage === 100;
 
   return (
     <>
@@ -70,13 +70,13 @@ export function TrackingPage({ cart }) {
           <img className="product-image" src="images/products/athletic-cotton-socks-6-pairs.jpg" />
 
           <div className="progress-labels-container">
-            <div className="progress-label">
+            <div className={`progress-label ${isPreparing && "current-status"}`}>
               Preparing
             </div>
-            <div className="progress-label current-status">
+            <div className={`progress-label ${isShipped && "current-status"}`}>
               Shipped
             </div>
-            <div className="progress-label">
+            <div className={`progress-label ${isDelivered && "current-status"}`}>
               Delivered
             </div>
           </div>
