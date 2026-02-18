@@ -1,10 +1,13 @@
 import { Link } from 'react-router';
 import './PageNotFound.css';
+import { Header } from '../components/Header';
 
-export function PageNotFound () {
+export function PageNotFound ({ cart }) {
   return (
     <>
       <title>Page Not Found</title>
+
+      <Header cart={cart}/>
 
       <div className='error-container'>
         <p className='error-text'>ERROR</p>
