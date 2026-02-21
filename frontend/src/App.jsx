@@ -21,6 +21,8 @@ function App() {
     loadCart();
   }, []);
 
+  window.axios = axios;
+
 
   return (
     <Routes>
