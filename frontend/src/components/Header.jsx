@@ -1,16 +1,18 @@
-import { NavLink } from 'react-router';
+import { NavLink, useNavigate } from 'react-router';
 import './Header.css';
 import searchIcon from '../assets/images/icons/search-icon.png';
 import cartIcon from '../assets/images/icons/cart-icon.png'
 
 export function Header({ cart }) {
+  const navigate = useNavigate(`/?search=${search}`);
+
   let totalQuantity = 0;
 
   cart.forEach((cartItem) => {
     totalQuantity += cartItem.quantity;
   })
 
-  function search() {
+  function productSearch() {
     console.log("Search text");
   }
 
@@ -26,7 +28,7 @@ export function Header({ cart }) {
       </div>
 
       <div className="middle-section">
-        <input className="search-bar" type="text" placeholder="Search" onClick={search}/>
+        <input className="search-bar" type="text" placeholder="Search" onClick={productSearch}/>
 
         <button className="search-button">
           <img className="search-icon" src={searchIcon} />
