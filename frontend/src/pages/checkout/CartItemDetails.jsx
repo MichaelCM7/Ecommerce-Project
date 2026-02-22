@@ -22,6 +22,15 @@ export function CartItemDetails({ cartItem, loadCart }) {
     await loadCart();
   }
 
+  function handleKeyStrokes (event) {
+    if (event.key === "Enter" && isUpdating) {
+      updateCart();
+      setIsUpdating(false);
+    } else if (event.key === "Escape" && isUpdating) {
+      setIsUpdating(false);
+    }
+  }
+
   function updateCartItemQuantity () {
     if (isUpdating) {
       updateCart();
@@ -51,6 +60,7 @@ export function CartItemDetails({ cartItem, loadCart }) {
                         type="text" 
                         className="quantity-input" 
                         value={quantity}
+                        onKeyDown={handleKeyStrokes}
                         onChange={saveInputQuantity}
                         style={{display: isUpdating? "inline-block" : "none"}} 
                       />
