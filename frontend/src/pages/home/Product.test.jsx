@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Product } from './Product';
 import axios from 'axios';
+import { use } from 'react';
 
 vi.mock('axios');
 
@@ -69,11 +70,13 @@ describe("Product Component", () => {
     expect(loadCart).toHaveBeenCalled();
   });
 
-  it('checks if the selector can select a value value', () => {
+  it('checks if the selector can select a value value', async () => {
     render(<Product product={product} loadCart={loadCart} />);
 
+    const user = userEvent.setup();
     const quantitySelector = screen.getByTestId("quantitySelector");
+    await user.selectOptions(quantitySelector, '3');
 
-    expect(quantitySelector).toHaveValue('1');
+    expect(quantitySelector).toHaveValue('3');
   })
 });
