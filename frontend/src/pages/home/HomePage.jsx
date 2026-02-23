@@ -11,32 +11,15 @@ export function HomePage({ cart, loadCart }) {
   const [searchParams] = useSearchParams();
   const search = searchParams.get('search');
 
-  // console.log(searchParams);
-  // console.log(search);
-
-  async function getSearchData() {
-    const response = await axios.get(`/api/products?search=${search}`);
-    setProducts(response.data);
-  }
-
-  async function getHomeData () {
-    const response = await axios.get('/api/products');
-    setProducts(response.data);
-  }
-
-  if (search) {
-      getSearchData();
-    } else {
-      getHomeData();
+  useEffect(() => {
+    const getHomeData = async () => {
+      const urlPath = search? `/api/products?search=${search}`: '/api/products';
+      const response = await axios.get(urlPath);
+      setProducts(response.data);
     }
 
-  // useEffect(() => {
-  //   if (search) {
-  //     getSearchData();
-  //   } else {
-  //     getHomeData();
-  //   }
-  // }, [search]);
+    getHomeData()
+  }, [search]);
 
   return (
     <>
