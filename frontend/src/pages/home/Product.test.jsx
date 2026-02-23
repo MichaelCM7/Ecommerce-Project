@@ -3,7 +3,6 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Product } from './Product';
 import axios from 'axios';
-import { use } from 'react';
 
 vi.mock('axios');
 
@@ -70,13 +69,22 @@ describe("Product Component", () => {
     expect(loadCart).toHaveBeenCalled();
   });
 
-  it('checks if the selector can select a value value', async () => {
+  it('checks if the selector can add more than one item', async () => {
     render(<Product product={product} loadCart={loadCart} />);
 
     const user = userEvent.setup();
     const quantitySelector = screen.getByTestId("quantitySelector");
-    await user.selectOptions(quantitySelector, '3');
+    const addToCartButton = screen.getByTestId("add-to-cart-button");
 
+
+    await user.selectOptions(quantitySelector, '3');
     expect(quantitySelector).toHaveValue('3');
+
+    await user.click(addToCartButton);
+    expect(axios.post('/api/cart-items', {
+      productId: 'e43638ce-6aa0-4b85-b27f-e1d07eb678c6',
+      quantity: '3'
+    }));
+    expect(loadCart).toHaveBeenCalled();
   })
 });
