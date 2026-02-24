@@ -63,6 +63,32 @@ describe('HomePage component', () => {
       within(productContainers[1])
         .getByText('Intermediate Size Basketball')
     ).toBeInTheDocument();
+  });
 
+  it('tests if the add to cart buttons work', () => {
+    render(
+      <MemoryRouter>
+        <HomePage cart={[]} loadCart={loadCart} />
+      </MemoryRouter>
+    );
+
+    const user = userEvent.setup();
+    const productContainers = screen.findAllByTestId("product-container");
+
+    within(productContainers[0], () => {
+      const addToCartButton = screen.findByTestId("add-to-cart-button");
+      user.click(addToCartButton);
+      expect(axios.post).toHaveBeenNthCalledWith(1, 'e43638ce-6aa0-4b85-b27f-e1d07eb678c6', 1);
+      expect(loadCart).toHaveBeenCalled();
+    });
+
+    within(productContainers[1], () => {
+      const addToCartButton = screen.findByTestId("add-to-cart-button");
+      user.click(addToCartButton);
+      expect(axios.post).toHaveBeenNthCalledWith(2, '15b6fc6f-327a-4ec4-896f-486349e85a3d', 1);
+      expect(loadCart).toHaveBeenCalled();
+    });
+
+    // expect(loadCart).toHaveBeenCalledTimes(2);
   });
 });
