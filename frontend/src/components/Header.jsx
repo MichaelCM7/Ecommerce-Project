@@ -2,7 +2,9 @@ import { NavLink, useNavigate, useSearchParams } from 'react-router';
 import { useState } from 'react';
 import './Header.css';
 import searchIcon from '../assets/images/icons/search-icon.png';
-import cartIcon from '../assets/images/icons/cart-icon.png'
+import cartIcon from '../assets/images/icons/cart-icon.png';
+import logo from '../../public/images/lumen-full.png';
+import logoMobile from '../../public/images/lumen.png';
 
 export function Header({ cart }) {
   const navigate = useNavigate();
@@ -29,9 +31,9 @@ export function Header({ cart }) {
       <div className="left-section">
         <NavLink to="/" className="header-link">
           <img className="logo"
-            src="/images/lumen-full.png" />
+            src={logo} />
           <img className="mobile-logo"
-            src="/images/lumen.png" />
+            src={logoMobile} />
         </NavLink>
       </div>
 
