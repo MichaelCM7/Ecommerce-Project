@@ -29,9 +29,9 @@ export function Header({ cart }) {
       <div className="left-section">
         <NavLink to="/" className="header-link">
           <img className="logo"
-            src="images/lumen-full-no-bg.png" />
+            src="images/logo-white.png" />
           <img className="mobile-logo"
-            src="images/lumen-no-bg.png" />
+            src="images/mobile-logo-white.png" />
         </NavLink>
       </div>
 
